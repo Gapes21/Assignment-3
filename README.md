@@ -1,7 +1,7 @@
 # VR Assignment 3
 
-*Subhajeet Lahiri - IMT2021022*
-*Sai Madhavan G - IMT2021101*
+*Subhajeet Lahiri - IMT2021022* |
+*Sai Madhavan G - IMT2021101* |
 *Aditya Garg - IMT2021545*
 
 # Part A
@@ -82,3 +82,50 @@ We trained these three models for 25 epochs each. All other factors except the d
 ### Conclusion
 - Using dropout increased performance considerably at the cost of a slight increase in convergence time
 - Using a dropout value of **0.4** seemed to be ideal as increasing it too much is resulting in decrease in performance.
+
+## Experiment with addition of Batch Normalization
+
+In this experiment, we introduced 2-dimensional batch normalization after each convolutional layer. We called this model `CNN3` All other factors were identical to the model `CNN2.2`.
+
+### Observations
+- The best accuracy of `CNN3` was **75.89%** and the best test f1 was **0.76** at **25** epochs (**227 seconds**)
+
+### Conclusion
+- Using batch normalization further increased the score. We speculate this is because it helps in solving the vanishing/exploding gradients problem, thereby making more neurons "active".
+
+## Experiments with various activation functions
+
+Finally, we experimented with different activation functions that were used after each convolutional and fully connected layers. All models upto `CNN3` used the ReLU activation function. All other factors except the activation function were identical to `CNN3`. We conducted experiments with the following activation functions:
+1. `CNN4.1`: Sigmoid
+2. `CNN4.2`: tanh
+3. `CNN4.3`: leaky ReLU (negative_slope = 0.01)
+4. `CNN4.4`: GELU
+
+### Observations
+- The best accuracy of `CNN4.1` was **72.67%** and the best test f1 was **0.73** at **25** epochs (**230 seconds**)
+- The best accuracy of `CNN4.2` was **72.84%** and the best test f1 was **0.73** at **23** epochs (**211 seconds**)
+- The best accuracy of `CNN4.3` was **76.77%** and the best test f1 was **0.77** at **11** epochs (**105 seconds**)
+- The best accuracy of `CNN4.4` was **77.21%** and the best test f1 was **0.77** at **22** epochs (**203 seconds**)
+
+### Conclusion
+- Based on the above observations, we concluded that the **GELU** activation function was the best.
+
+___
+## Conclusion
+| **Model** | **Optimization Strategy** | **Dropout** | **Batch Normalization** | **Activation Function** | **Test Accuracy (%)** | **Test f1** | **Epochs till convergence** | **Time till convergence (s)** |
+| --------- | ------------------------- | ----------- | ----------------------- | ----------------------- | --------------------- | ----------- | --------------------------- | ----------------------------- |
+| CNN1      | SGD                       | 0           | No                      | ReLU                    | 63.67                 | 0.64        | 500                         | 7430                          |
+| CNN1.1    | SGD with momentum         | 0           | No                      | ReLU                    | 70.83                 | 0.71        | 120                         | 2464                          |
+| CNN1.2    | Adam                      | 0           | No                      | ReLU                    | 68.17                 | 0.68        | *7*                         | 433                           |
+| CNN2.1    | Adam                      | 0.2         | No                      | ReLU                    | 71.44                 | 0.71        | 9                           | *83*                          |
+| CNN2.2    | Adam                      | 0.4         | No                      | ReLU                    | 72.54                 | 0.72        | 17                          | 150                           |
+| CNN2.3    | Adam                      | 0.6         | No                      | ReLU                    | 72.00                 | 0.72        | 14                          | 127                           |
+| CNN2.4    | Adam                      | 0.8         | No                      | ReLU                    | 69.59                 | 0.69        | 22                          | 200                           |
+| CNN3      | Adam                      | 0.4         | Yes                     | ReLU                    | 75.89                 | 0.76        | 25                          | 227                           |
+| CNN4.1    | Adam                      | 0.4         | Yes                     | Sigmoid                 | 72.67                 | 0.73        | 25                          | 230                           |
+| CNN4.2    | Adam                      | 0.4         | Yes                     | tanh                    | 72.84                 | 0.73        | 23                          | 211                           |
+| CNN4.3    | Adam                      | 0.4         | Yes                     | Leaky ReLU              | 76.77                 | *0.77*      | 11                          | 105                           |
+| *CNN4.4*  | Adam                      | 0.4         | Yes                     | GELU                    | *77.21*               | *0.77*      | 22                          | 203                           |
+
+Based on the results of our experiments, we recommend the configuration of the model `CNN4.4`, due to it's performance and efficiency.
+___
