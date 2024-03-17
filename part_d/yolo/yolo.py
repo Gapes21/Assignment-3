@@ -39,3 +39,6 @@ class YOLOV2Detector:
         os.remove(imgPath)
         if len(os.listdir(self.tempDir))==0:
             os.rmdir(self.tempDir)
+            
+            
+ 

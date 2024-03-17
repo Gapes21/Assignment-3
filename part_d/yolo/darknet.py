@@ -2,7 +2,6 @@ from ctypes import *
 import math
 import random
 
-
 def sample(probs):
     s = sum(probs)
     probs = [a / s for a in probs]
