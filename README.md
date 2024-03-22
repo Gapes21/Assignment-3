@@ -1,6 +1,6 @@
 # VR Assignment 3
 
-[REPO]()
+[REPO](https://github.com/Gapes21/Assignment-3.git) - It is recommended to view this report on Github :)
 
 *Subhajeet Lahiri - IMT2021022* |
 *Sai Madhavan G - IMT2021101* |
@@ -186,12 +186,9 @@ Initially, we set up the building blocks of the network using sequential modules
 
 - The final linear layer (last_layer) maps the features to 10 output units, representing 10 possible clothing categories.
   
-  
   Moving ahead, the "forward" method defines the data flow of the network.
 
 For further training, we use the cross entropy loss with Adam optimizer (learning rate was set as 0.00032. We trained the model with 2 epoch values. One of the value was set as 128 and the other was set as 32. After this step, we form a new dataset by taking the training dataset, and passing it to the network.
-
-
 
 ## Classifiers
 
@@ -214,7 +211,6 @@ This dataset will serve as the input for the following classifiers:
 8. Extra Trees Classifiers
 
 9. Linear SVC with L1 Regularization
-   
 
 Following are the accuracies achieved using these models:
 
@@ -255,9 +251,7 @@ vi) LinearSVC - 100
 vii) K-Nearest Neighbours - 100
 viii) Extra Trees Classifiers - 100
 ix) Bernoulli NB - 85.7142
-x) LinearSVC with l1 regularization - 100
-
-
+x) LinearSVC with L1 regularization - 100
 
 ### SVHN (Street View House Numbers) Dataset
 
@@ -269,14 +263,23 @@ i) Logistic Regression - 90.16
 ii) Random Forest - 90.24
 iii) Gaussian NB - 87.60
 iv) Multinomial NB - 89.67
-v) Gradient Boosting - 
-vi) LinearSVC - 89.80
-vii) K-Nearest Neighbours - 90.51
-viii) Extra Trees Classifiers - 90.53
-ix) Bernoulli NB - 80.50
-x) LinearSVC with l1 regularization - 89.74
+v) LinearSVC - 89.80
+vi) K-Nearest Neighbours - 90.51
+vii) Extra Trees Classifiers - 90.53
+viii) Bernoulli NB - 80.50
+ix) LinearSVC with L1 regularization - 89.74
 
+#### Sigmoid activation
 
+i) Logistic Regression - 90.18
+ii) Random Forest - 90.31
+iii) Gaussian NB - 89.42
+iv) Multinomial NB - 89.48
+v) LinearSVC - 90.16
+vi) K-Nearest Neighbours - 90.58
+vii) Extra Trees Classifiers - 90.29
+viii) Bernoulli NB - 19.58
+ix) LinearSVC with L1 regularization - 90.15
 
 ---
 
@@ -454,5 +457,3 @@ Here are our notes on the results observed :
 5. SORT + YOLO is another extreme as **two modest cooks make a bland broth**.
 
 6. We did experience sir's in-class prediction come true irl as neither detector could reliably detect an auto.
-   
-   
